@@ -190,6 +190,13 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Custom keymaps
+vim.keymap.set('n', '<leader>pv', ':Vex<CR>', { desc = 'Show directory' })
+vim.keymap.set('n', '<leader>pf', ':Files<CR>', { desc = 'Show directory' })
+vim.keymap.set('v', '<C-f>', ':tmux new-session -d "~/tmux-sessionizer" && tmux attach-session', { desc = 'Tmux' })
+--
+--
+--
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
