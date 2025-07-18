@@ -210,6 +210,7 @@ vim.keymap.set('n', '<leader>pv', ':Vex<CR>', { desc = 'Show directory' })
 vim.keymap.set('n', '<leader>pf', ':Files<CR>', { desc = 'Show directory' })
 vim.keymap.set('v', '<C-f>', ':tmux new-session -d "~/tmux-sessionizer" && tmux attach-session', { desc = 'Tmux' })
 vim.keymap.set('n', '<S-Tab>', '<C-^>', { desc = 'Toggle between two recently opened files' })
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Memorize paste value' })
 --
 --
 --
