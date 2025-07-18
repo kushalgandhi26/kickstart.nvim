@@ -128,6 +128,13 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+vim.o.expandtab = true -- Use spaces instead of tabs
+vim.o.shiftwidth = 2 -- Spaces per indentation level
+vim.o.tabstop = 2 -- Number of spaces per tab
+vim.o.softtabstop = 2 -- When pressing Tab
+vim.o.smartindent = true -- Smart autoindent
+vim.o.autoindent = true -- Copy indent from current line
+
 -- Keep signcolumn on by default
 vim.o.signcolumn = 'yes'
 
@@ -138,7 +145,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 -- Configure how new splits should be opened
-vim.o.splitright = true
+vim.o.splitright = false
 vim.o.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
@@ -770,8 +777,9 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 1000,
             lsp_format = 'fallback',
+            async = false,
           }
         end
       end,
@@ -781,7 +789,10 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', stop_after_first = true },
+        typescript = { 'prettierd', stop_after_first = true },
+        javascriptreact = { 'prettierd', stop_after_first = true },
+        typescriptreact = { 'prettierd', stop_after_first = true },
       },
     },
   },
@@ -957,7 +968,28 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'ruby',
+        'javascript',
+        'typescript',
+        'tsx',
+        'json',
+        'css',
+        'scss',
+        'yaml',
+        'python',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -987,7 +1019,7 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  --require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
